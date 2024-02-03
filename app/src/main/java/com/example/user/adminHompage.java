@@ -20,13 +20,7 @@ public class adminHompage extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    SharedPreferences preferences;
-    private static final String SHARED_PREF_NAME = "pref";
 
-    private static final String KEY_NAME = "name";
-    private static final String KEY_CONTACT = "contact";
-    private static final String SHARED_NAME = "Username";
-    private static final String SHARED_PASSWORD = "Password";
 
 
     @Override
@@ -38,7 +32,6 @@ public class adminHompage extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.view_nav);
         toolbar = findViewById(R.id.toolb);
 
-        preferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
 
 
         setSupportActionBar(toolbar);
@@ -81,10 +74,7 @@ public class adminHompage extends AppCompatActivity implements NavigationView.On
 
         } else if (ID == R.id.n_logout) {
 
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.commit();
-            editor.clear();
-            editor.apply();
+
             Intent intent = new Intent(adminHompage.this, Start.class);
             startActivity(intent);
             Toast.makeText(this, "Logout Successfully", Toast.LENGTH_SHORT).show();

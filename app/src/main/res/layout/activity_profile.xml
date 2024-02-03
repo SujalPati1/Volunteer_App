@@ -97,7 +97,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:id="@+id/imcadd"
-                android:background="@drawable/contact"
+                android:background="@drawable/address"
                 android:layout_below="@+id/view1"
                 android:layout_marginTop="20dp"/>
 
@@ -118,14 +118,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="20dp"
-                android:layout_below="@id/cont_user"
+                android:layout_below="@id/add_user"
                 android:background="@android:color/darker_gray"
                 android:id="@+id/view2"/>
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:id="@+id/imuser"
-                android:background="@drawable/address"
+                android:background="@drawable/username1"
                 android:layout_below="@+id/view2"
                 android:layout_marginTop="20dp"/>
             <TextView

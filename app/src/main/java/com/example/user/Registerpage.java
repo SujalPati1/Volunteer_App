@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -30,7 +32,9 @@ public class Registerpage extends AppCompatActivity {
     EditText eName,eContact,eUsername, ePassword,eaddress,ecity,estate,pcode,edob,eoccupation,efield;
     Button signUp;
     TextView signIn;
+    Spinner spinner;
 
+    ArrayAdapter arrayAdapter;
     DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://user-4d03f-default-rtdb.firebaseio.com/");
 
 
@@ -52,6 +56,78 @@ public class Registerpage extends AppCompatActivity {
         efield = findViewById(R.id.interest);
         signIn = findViewById(R.id.sign_in);
         signUp =findViewById(R.id.sign_up);
+
+
+        Spinner spinner = findViewById(R.id.spinner);
+        Spinner spinner1 = findViewById(R.id.spinner1);
+
+        String[] options = {"Select Your Occupation","12th", "Diploma", "UG", "PG", "Others"};
+        String[] options1 = {"Select Your Interest","Healthcare", "Education", "Animal Welfare", "Environment and Conservation","Social Service","Others"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options1);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner1.setAdapter(adapter1);
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String selectedOption = options[position];
+
+                if (selectedOption!=options[0]){
+                    eoccupation.setText(selectedOption);
+                    Toast.makeText(Registerpage.this,"Occupation is selected",Toast.LENGTH_SHORT).show();
+                    if (selectedOption=="others"){
+                        eoccupation.setText(null);
+                    }
+                }
+                else {
+                     eoccupation.setText(null);
+                }
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+
+            }
+        });
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String selectedOption1 = options1[position];
+
+                if (selectedOption1!=options1[0]){
+                    efield.setText(selectedOption1);
+                    Toast.makeText(Registerpage.this,"area of interest is selected",Toast.LENGTH_SHORT).show();
+                    if (selectedOption1=="others"){
+                        efield.setText(null);
+                    }
+                }
+                else {
+                    efield.setText(null);
+                }
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+
+            }
+        });
+
+
+
 
 
 

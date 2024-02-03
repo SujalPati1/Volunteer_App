@@ -44,7 +44,7 @@ public class Start extends AppCompatActivity {
         Organisation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Start.this,MainActivity.class);
+                Intent intent=new Intent(Start.this,orglogin.class);
                 startActivity(intent);
                 finish();
             }

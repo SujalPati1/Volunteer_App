@@ -59,8 +59,9 @@ public class Admin extends AppCompatActivity {
 
 
     }
-    public  void onBackPressed(){
-        Intent intent=new Intent(Admin.this,Start.class);
+    public  void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Admin.this, Start.class);
         startActivity(intent);
         finish();
     }

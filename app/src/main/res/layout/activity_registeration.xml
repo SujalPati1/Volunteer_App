@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Contact"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textPhonetic"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -166,6 +166,11 @@
             android:hint="Occupatiom"
             android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/spinner"/>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -178,6 +183,11 @@
             android:layout_height="wrap_content"
             android:hint="Area of interest"
             android:inputType="text"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/spinner1"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
